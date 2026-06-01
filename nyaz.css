@@ -1,0 +1,131 @@
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#ff4d6d);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+/* background animation */
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* glowing floating circles */
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter: blur(90px);
+    z-index:0;
+    opacity:0.6;
+}
+
+body::before{
+    background:#ff4d6d;
+    top:10%;
+    left:10%;
+    animation: float1 6s ease-in-out infinite;
+}
+
+body::after{
+    background:#4dd0ff;
+    bottom:10%;
+    right:10%;
+    animation: float2 7s ease-in-out infinite;
+}
+
+@keyframes float1{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(40px);}
+}
+
+@keyframes float2{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-40px);}
+}
+
+/* card */
+.card{
+    position:relative;
+    z-index:1;
+    width:380px;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+
+    background: rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+
+    animation: pop 1s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.5); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+.heart{
+    font-size:50px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.4);}
+    100%{transform:scale(1);}
+}
+
+h1{
+    margin:15px 0;
+    color:#ffffff;
+    font-size:28px;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+p{
+    font-size:15px;
+    color:#eaeaea;
+    line-height:1.6;
+    margin-bottom:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 22px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-weight:bold;
+
+    background: linear-gradient(90deg,#ff4d6d,#4dd0ff);
+    color:white;
+
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(255,77,109,0.4);
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px rgba(77,208,255,0.6);
+}
+</style>
